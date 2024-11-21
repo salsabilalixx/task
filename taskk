@@ -1,0 +1,195 @@
+#1
+class Student {
+  String name;
+  int rollNumber;
+
+  Student(this.name, this.rollNumber);
+}
+
+void main() {
+  Student s = Student("ahmed", 100);
+
+  print("Student Name: ${s.name}");
+  print("Roll Number: ${s.rollNumber}");
+}
+
+#2
+class MobilePhone {
+  String brand;
+  String model;
+  int price;
+
+  MobilePhone(this.brand, this.model, this.price);
+
+  void displayDetails() {
+    print("Brand: $brand");
+    print("Model: $model");
+    print("Price: $price");
+  }
+}
+
+void main() {
+  MobilePhone phone = MobilePhone("iphone", "pro", 40000);
+  phone.displayDetails();
+}
+
+#3
+class Employee {
+  int id;
+  String name;
+  String designation;
+
+  Employee(this.id, this.name, this.designation);
+
+  void displayDetails() {
+    print("ID: $id");
+    print("Name: $name");
+    print("Designation: $designation");
+  }
+}
+
+void main() {
+  Employee emp1 = Employee(101, "ahmed", "Software Engineer");
+  Employee emp2 = Employee(102, "omar", "Product Manager");
+  Employee emp3 = Employee(103, "wael", "Data Scientist");
+
+  emp1.displayDetails();
+  emp2.displayDetails();
+  emp3.displayDetails();
+}
+
+#4
+class Laptop {
+  String brand;
+  double price;
+
+  Laptop() {
+    brand = "Unknown";
+    price = 0.0;
+  }
+
+  void displayDetails() {
+    print("Brand: $brand");
+    print("Price: $price");
+  }
+}
+
+void main() {
+  Laptop laptop = Laptop();
+  laptop.displayDetails();
+}
+
+#5
+class Product {
+  int id;
+  String name;
+  double price;
+
+  Product(this.id, this.name, this.price);
+
+  Product.fromMap(Map<String, dynamic> map)
+      : id = map['id'],
+        name = map['name'],
+        price = map['price'];
+
+  void displayDetails() {
+    print("ID: $id");
+    print("Name: $name");
+    print("Price: $price");
+  }
+}
+
+void main() {
+  Map<String, dynamic> productData = {
+    'id': 1,
+    'name': 'Laptop',
+    'price': 1500.0,
+  };
+
+  Product product = Product.fromMap(productData);
+  product.displayDetails();
+}
+
+#6
+class Rectangle {
+  double length;
+  double width;
+
+  Rectangle(this.length, this.width);
+
+  double area() {
+    return length * width;
+  }
+}
+
+void main() {
+  Rectangle rectangle = Rectangle(5.3, 3.2);
+  print("Area: ${rectangle.area}");
+}
+#7
+class Vehicle {
+  static int instanceCount = 0;
+
+  Vehicle() {
+    instanceCount++;
+  }
+
+  static void countInstances() {
+    print("Number of Vehicle instances: $instanceCount");
+  }
+}
+
+void main() {
+  Vehicle v1 = Vehicle();
+  Vehicle v2 = Vehicle();
+  Vehicle v3 = Vehicle();
+
+  Vehicle.countInstances();
+}
+
+#8
+class Circle {
+  double radius;
+  static const double pi = 3.22;
+
+  Circle(this.radius);
+
+  double circumference() {
+    return 2 * pi * radius;
+  }
+}
+
+void main() {
+  Circle circle = Circle(5.3);
+  print("Circumference: ${circle.circumference()}");
+}
+
+#9
+class BurgerOrder {
+  String burg = "";
+
+  BurgerOrder addCheese() {
+    burg += "Cheese, ";
+    return this;
+  }
+
+  BurgerOrder addLettuce() {
+    burg += "Lettuce, ";
+    return this;
+  }
+
+  BurgerOrder addSauce() {
+    burg += "Sauce, ";
+    return this;
+  }
+
+  void displayOrder() {
+    print("Customized Burger: ${burg}");
+  }
+}
+
+void main() {
+  BurgerOrder order = BurgerOrder();
+  order.addCheese().addLettuce().addSauce();
+  order.displayOrder();
+}
